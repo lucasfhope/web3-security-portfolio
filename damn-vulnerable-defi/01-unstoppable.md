@@ -1,8 +1,5 @@
 # Unstoppable
 
-**Challenge Contracts**: https://github.com/theredguild/damn-vulnerable-defi/tree/v4.1.0/src/unstoppable/   
-**Test File**: https://github.com/theredguild/damn-vulnerable-defi/tree/v4.1.0/test/unstoppable/Unstoppable.t.sol
-
 ## Challenge Overview
 
 **Unstoppable** features an ERC4626-compatible vault holding 1,000,000 DVT tokens and offering zero-fee flash loans during a beta period. A monitoring contract tracks the availability of the flash loan functionality.
@@ -11,9 +8,9 @@ The objective is to stop the vault’s ability to issue flash loans with 10 DVT 
 
 ## Protocol Summary
 
-The system is centered around the `UnstoppableVault` contract, a tokenized vault that accepts DVT tokens in exchange for vault shares. The contract implements a zero-fee flash loan of DVT as long as funds are returned in the same transaction. 
+The system is centered around the `UnstoppableVault` contract, a tokenized vault that accepts DVT tokens in exchange for vault shares. The contract implements a zero-fee flash loan of DVT as long as funds are returned in the same transaction.
 
-The protocol includes an `UnstoppableMonitor` contract to verify the vault’s flash loan function remains operational. 
+The protocol includes an `UnstoppableMonitor` contract to verify the vault’s flash loan function remains operational.
 
 ## Vulnerability Analysis
 
@@ -36,16 +33,10 @@ The attacker transfers DVT directly to the vault contract. This will break the a
 
 ```solidity
 function test_unstoppable() public checkSolvedByPlayer {
-    token.transfer(address(vault), 1);
+token.transfer(address(vault), 1);
 }
 ```
 
-**Challenge solved** — flash loan liveness check fails.
+## Result
 
-<img src="./img/unstoppable-pass.png" width="800">
-
-
-
-
-
-
+Transferring tokens directly to the vault breaks the asset-to-share invariant. The liveliness check by the `FlashLoanMonitor` will fail due to the denial-of-service on the vault’s flash loan functionality.

