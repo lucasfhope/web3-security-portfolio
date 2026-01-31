@@ -1,9 +1,6 @@
 
 # Naive Receiver
 
-**Challenge Contracts**: https://github.com/theredguild/damn-vulnerable-defi/tree/v4.1.0/src/naive-receiver/
-**Test File**: https://github.com/theredguild/damn-vulnerable-defi/tree/v4.1.0/test/unstoppable/NaiveReceiver.t.sol
-
 ## Challenge Overview
 
 **Naive Receiver** features a flash loan pool holding 1,000 WETH and charging a 1 WETH fee. The pool supports meta-transactions through a trusted forwarder. A separate receiver contract, owned by a user, starts with 10 WETH and automatically repays flash loans plus the fixed fee.
