@@ -8,7 +8,7 @@ In a single transaction, rescue the 1 million DVT in the lending pool and send i
 
 ## Vulnerability Analysis
 
-The callback executed by `flashLoan` is unrestricted and originates from `TrusterLenderPool`. This allows an attacker to force the pool to approve its own DVT balance to an attacker-controlled address, enabling the full pool balance to be drained via `transferFrom`.
+`flashLoan` forwards arbitrary `target` and calldata provided by the borrower. This effectively gives the borrower an unrestricted external call executed from `TrusterLenderPool`, allowing the pool to be coerced into approving its own DVT and then drained via `transferFrom`.
 
 ## Exploit Strategy
 
