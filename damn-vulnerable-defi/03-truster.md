@@ -8,7 +8,7 @@ The objective is to rescue all of the funds in the lending pool in a single tran
 
 ## Protocol Summary
 
-The protocol contains a single `TrusterLenderPool` contract that offers a `flashLoan` with an external callback to an arbitrary `target` address.
+The `TrusterLenderPool` contract offers a `flashLoan` with an external callback to an arbitrary `target` address.
 
 ## Vulnerability Analysis
 

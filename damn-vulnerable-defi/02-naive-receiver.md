@@ -9,7 +9,7 @@ The objective is to drain all WETH from both the receiver contract and the flash
 
 ## Protocol Summary
 
-The system is centered around the `NaiveReceiverPool` contract, which holds WETH liquidity and provides a flash loan for a 1 WETH fixed-fee. The pool integrates meta-transactions through a trusted forwarder that enables submitting transactions on behalf of other users. `Multicall` allows for batched transactions to the `NaiveReceiverPool`. The protocol also includes a `FlashLoanReceiver` contract that will receive and repay the flash loan.
+The `NaiveReceiverPool` contract holds WETH liquidity and provides a flash loan for a 1 WETH fixed-fee. The pool integrates meta-transactions through a trusted forwarder that enables submitting transactions on behalf of other users. `Multicall` allows for batched transactions to the `NaiveReceiverPool`. The `FlashLoanReceiver` contract can be used to receive and repay the flash loan.
 
 ## Vulnerability Analysis
 

@@ -8,9 +8,9 @@ The objective is to stop the vault’s ability to issue flash loans with 10 DVT 
 
 ## Protocol Summary
 
-The system is centered around the `UnstoppableVault` contract, a tokenized vault that accepts DVT tokens in exchange for vault shares. The contract implements a zero-fee flash loan of DVT as long as funds are returned in the same transaction.
+The `UnstoppableVault` contract is a tokenized vault that accepts DVT tokens in exchange for vault shares. The contract implements a zero-fee flash loan of DVT as long as funds are returned in the same transaction.
 
-The protocol includes an `UnstoppableMonitor` contract to verify the vault’s flash loan function remains operational.
+The `UnstoppableMonitor` contract can verify the flash loan function remains operational.
 
 ## Vulnerability Analysis
 
