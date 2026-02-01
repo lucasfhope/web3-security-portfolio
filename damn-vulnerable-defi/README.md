@@ -36,3 +36,12 @@ Additional details can be found on the website and in the repository linked abov
 [![Test](https://img.shields.io/badge/Test_Setup-black?style=flat&logo=checkmarx&logoColor=white)](https://github.com/theredguild/damn-vulnerable-defi/tree/v4.1.0/test/naive-receiver)
 
 <img src="./img/02-naive-receiver-completed.png" width="900">
+
+### 3. Truster
+
+[![Challenge](https://img.shields.io/badge/Challenge-black?style=flat&logo=ethereum&logoColor=white)](https://www.damnvulnerabledefi.xyz/challenges/truster/)
+[![Report](https://img.shields.io/badge/Report-black?style=flat&logo=read.cv&logoColor=white)](/03-truster.md)
+[![Contracts](https://img.shields.io/badge/Contracts-black?style=flat&logo=solidity&logoColor=white)](https://github.com/theredguild/damn-vulnerable-defi/tree/v4.1.0/src/truster)
+[![Test](https://img.shields.io/badge/Test_Setup-black?style=flat&logo=checkmarx&logoColor=white)](https://github.com/theredguild/damn-vulnerable-defi/tree/v4.1.0/test/truster)
+
+<img src="./img/03-truster-completed.png" width="900">
