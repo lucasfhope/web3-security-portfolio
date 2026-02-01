@@ -3,13 +3,9 @@
 
 ## Challenge Overview
 
-**Naive Receiver** features a flash loan pool holding 1,000 WETH and charging a 1 WETH fee. The pool supports meta-transactions through a trusted forwarder. A separate receiver contract, owned by a user, starts with 10 WETH and automatically repays flash loans plus the fixed fee.
+The `NaiveReceiverPool` contract holds WETH liquidity and provides a flash loan for a 1 WETH fixed-fee. The pool integrates meta-transactions through a `BasicForwarder` that enables submitting transactions on behalf of other users. `Multicall` allows for batched transactions to the `NaiveReceiverPool`. The `FlashLoanReceiver` contract is deployed by a user to receive and repay flash loans.
 
-The objective is to drain all WETH from both the receiver contract and the flash loan pool and transfer the funds to a designated recovery address in one transaction.
-
-## Protocol Summary
-
-The `NaiveReceiverPool` contract holds WETH liquidity and provides a flash loan for a 1 WETH fixed-fee. The pool integrates meta-transactions through a trusted forwarder that enables submitting transactions on behalf of other users. `Multicall` allows for batched transactions to the `NaiveReceiverPool`. The `FlashLoanReceiver` contract can be used to receive and repay the flash loan.
+In one transaction, rescue the 10 WETH from the user's receiver contract and the 1,000 WETH from the `NaiveRecieverPool` and send it to a designated recovery account.
 
 ## Vulnerability Analysis
 

@@ -2,13 +2,9 @@
 
 ## Challenge Overview
 
-**Truster** features a lending pool offering flashloans of DVT tokens for free. The pool holds 1 million DVT. The player starts with nothing.
+The `TrusterLenderPool` contract offers flash loans of DVT tokens for free. 
 
-The objective is to rescue all of the funds in the lending pool in a single transaction by moving the funds to a designated recovery account.
-
-## Protocol Summary
-
-The `TrusterLenderPool` contract offers a `flashLoan` with an external callback to an arbitrary `target` address.
+In a single transaction, rescue the 1 million DVT in the lending pool and send it to the recovery account.
 
 ## Vulnerability Analysis
 

@@ -2,15 +2,9 @@
 
 ## Challenge Overview
 
-**Unstoppable** features an ERC4626-compatible vault holding 1,000,000 DVT tokens and offering zero-fee flash loans during a beta period. A monitoring contract tracks the availability of the flash loan functionality.
+The `UnstoppableVault` contract is an ERC4626-compatible vault holding DVT tokens and offering zero-fee flash loans. The `UnstoppableMonitor` contract can verify the flash loan function remains operational.
 
-The objective is to stop the vault’s ability to issue flash loans with 10 DVT tokens.
-
-## Protocol Summary
-
-The `UnstoppableVault` contract is a tokenized vault that accepts DVT tokens in exchange for vault shares. The contract implements a zero-fee flash loan of DVT as long as funds are returned in the same transaction.
-
-The `UnstoppableMonitor` contract can verify the flash loan function remains operational.
+Starting with 10 DVT tokens, disable the vault’s ability to execute flash loans.
 
 ## Vulnerability Analysis
 
