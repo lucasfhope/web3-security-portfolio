@@ -46,7 +46,7 @@ The exploit is performed in two steps.
 
 First, the user's `FlashLoanReceiver` can be drained by forcing flash loans for 0 WETH. The pool will charge 1 WETH fee paid by the receiver until it is empty. The pool will deposit fees on behalf of the fee receiver which is the deployer.
 
-Then, `withdraw` will send the pool's WETH balance to the recovery address when the deployer address is appended to the call.
+Then, `withdraw` will send the pool's WETH balance to the recovery account when the deployer address is appended to the call.
 
 All of these calls are executed in a single transaction using `multicall`.
 

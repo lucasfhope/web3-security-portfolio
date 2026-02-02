@@ -14,7 +14,7 @@ In a single transaction, rescue the 1 million DVT in the lending pool and send i
 
 The exploit is executed by calling `flashLoan` with the DVT token as the external call `target` and supplying calldata that makes the pool execute `approve`.
 
-`TrusterRecoverer` is used to execute the exploit and forward the drained funds to the recovery address.
+`TrusterRecoverer` is used to execute the exploit and send the rescued funds to the recovery account.
 
 ```solidity
 contract TrusterRecoverer {
