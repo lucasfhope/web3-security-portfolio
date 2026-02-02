@@ -77,4 +77,4 @@ function test_theRewarder() public checkSolvedByPlayer {
 
 ## Result
 
-Tokens from the distributor will be rescued and sent to the recovery account.
+Tokens held by the distributor will be rescued and sent to the recovery account.
