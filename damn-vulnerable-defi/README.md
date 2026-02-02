@@ -26,7 +26,7 @@ Additional details can be found on the website and in the repository linked abov
 [![Contracts](https://img.shields.io/badge/Contracts-black?style=flat&logo=solidity&logoColor=white)](https://github.com/theredguild/damn-vulnerable-defi/tree/v4.1.0/src/unstoppable)
 [![Test](https://img.shields.io/badge/Test_Setup-black?style=flat&logo=checkmarx&logoColor=white)](https://github.com/theredguild/damn-vulnerable-defi/tree/v4.1.0/test/unstoppable)
 
-<img src="./img/01-unstoppable-completed.png" width="900">
+<img src="./img/01-unstoppable.png" width="900">
 
 ### 2. Naive Receiver
 
@@ -35,7 +35,7 @@ Additional details can be found on the website and in the repository linked abov
 [![Contracts](https://img.shields.io/badge/Contracts-black?style=flat&logo=solidity&logoColor=white)](https://github.com/theredguild/damn-vulnerable-defi/tree/v4.1.0/src/naive-receiver)
 [![Test](https://img.shields.io/badge/Test_Setup-black?style=flat&logo=checkmarx&logoColor=white)](https://github.com/theredguild/damn-vulnerable-defi/tree/v4.1.0/test/naive-receiver)
 
-<img src="./img/02-naive-receiver-completed.png" width="900">
+<img src="./img/02-naive-receiver.png" width="900">
 
 ### 3. Truster
 
@@ -44,4 +44,40 @@ Additional details can be found on the website and in the repository linked abov
 [![Contracts](https://img.shields.io/badge/Contracts-black?style=flat&logo=solidity&logoColor=white)](https://github.com/theredguild/damn-vulnerable-defi/tree/v4.1.0/src/truster)
 [![Test](https://img.shields.io/badge/Test_Setup-black?style=flat&logo=checkmarx&logoColor=white)](https://github.com/theredguild/damn-vulnerable-defi/tree/v4.1.0/test/truster)
 
-<img src="./img/03-truster-completed.png" width="900">
+<img src="./img/03-truster.png" width="900">
+
+### 4. Side Entrance
+
+[![Challenge](https://img.shields.io/badge/Challenge-black?style=flat&logo=ethereum&logoColor=white)](https://www.damnvulnerabledefi.xyz/challenges/side-entrance/)
+[![Report](https://img.shields.io/badge/Report-black?style=flat&logo=read.cv&logoColor=white)](/04-side-entrance.md)
+[![Contracts](https://img.shields.io/badge/Contracts-black?style=flat&logo=solidity&logoColor=white)](https://github.com/theredguild/damn-vulnerable-defi/tree/v4.1.0/src/side-entrance)
+[![Test](https://img.shields.io/badge/Test_Setup-black?style=flat&logo=checkmarx&logoColor=white)](https://github.com/theredguild/damn-vulnerable-defi/tree/v4.1.0/test/side-entrance)
+
+<img src="./img/04-side-entrance.png" width="900">
+
+### 5. The Rewarder
+
+[![Challenge](https://img.shields.io/badge/Challenge-black?style=flat&logo=ethereum&logoColor=white)](https://www.damnvulnerabledefi.xyz/challenges/the-rewarder/)
+[![Report](https://img.shields.io/badge/Report-black?style=flat&logo=read.cv&logoColor=white)](/05-the-rewarder.md)
+[![Contracts](https://img.shields.io/badge/Contracts-black?style=flat&logo=solidity&logoColor=white)](https://github.com/theredguild/damn-vulnerable-defi/tree/v4.1.0/src/the-rewarder)
+[![Test](https://img.shields.io/badge/Test_Setup-black?style=flat&logo=checkmarx&logoColor=white)](https://github.com/theredguild/damn-vulnerable-defi/tree/v4.1.0/test/the-rewarder)
+
+<img src="./img/05-the-rewarder.png" width="900">
+
+### 6. Selfie
+
+[![Challenge](https://img.shields.io/badge/Challenge-black?style=flat&logo=ethereum&logoColor=white)](https://www.damnvulnerabledefi.xyz/challenges/selfie/)
+[![Report](https://img.shields.io/badge/Report-black?style=flat&logo=read.cv&logoColor=white)](/06-selfie.md)
+[![Contracts](https://img.shields.io/badge/Contracts-black?style=flat&logo=solidity&logoColor=white)](https://github.com/theredguild/damn-vulnerable-defi/tree/v4.1.0/src/selfie)
+[![Test](https://img.shields.io/badge/Test_Setup-black?style=flat&logo=checkmarx&logoColor=white)](https://github.com/theredguild/damn-vulnerable-defi/tree/v4.1.0/test/selfie)
+
+<img src="./img/06-selfie.png" width="900">
+
+### 7. Compromised
+
+[![Challenge](https://img.shields.io/badge/Challenge-black?style=flat&logo=ethereum&logoColor=white)](https://www.damnvulnerabledefi.xyz/challenges/compromised/)
+[![Report](https://img.shields.io/badge/Report-black?style=flat&logo=read.cv&logoColor=white)](/07-compromised.md)
+[![Contracts](https://img.shields.io/badge/Contracts-black?style=flat&logo=solidity&logoColor=white)](https://github.com/theredguild/damn-vulnerable-defi/tree/v4.1.0/src/compromised)
+[![Test](https://img.shields.io/badge/Test_Setup-black?style=flat&logo=checkmarx&logoColor=white)](https://github.com/theredguild/damn-vulnerable-defi/tree/v4.1.0/test/compromised)
+
+<img src="./img/07-compromised.png" width="900">
